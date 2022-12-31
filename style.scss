@@ -1,15 +1,31 @@
 $subject-color: #ff4522;
+@font-face {
+  font-family: mulish;
+  src: url("./Mulish-Regular.ttf");
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f9f9f9;
-  font-family: Arial, Helvetica, sans-serif;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-family: "mulish";
   min-height: 100vh;
   margin: 0;
 }
+.main-section {
+  height: 100vh;
+}
+.section {
+  height: 80vh;
+  background-color: white;
+}
+
 .topbar_inner {
   display: flex;
   justify-content: center;
-  position: relative;
+  // position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-color: white;
 }
 .menu {
@@ -91,44 +107,194 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
+
 .left {
-  background-color: beige;
-  width: 50%;
+  width: 40%;
+  // padding-left: 10%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   .name {
     color: $subject-color;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+    font-weight: bold;
   }
   .job {
     text-transform: uppercase;
-    font-size: 1.9rem;
-    font-weight: 800;
+    font-size: 2.5rem;
+    font-weight: 1000;
+    padding-top: 0;
+    margin-top: 0;
   }
+  @-webkit-keyframes bounce-down {
+    25% {
+      -webkit-transform: translateY(-10px);
+    }
+    50%,
+    100% {
+      -webkit-transform: translateY(0);
+    }
+    75% {
+      -webkit-transform: translateY(10px);
+    }
+  }
+
+  @keyframes bounce-down {
+    25% {
+      transform: translateY(-10px);
+    }
+    50%,
+    100% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+  }
+
+  .animate-bounce-down {
+    // position: relative;
+    position: absolute;
+    bottom: 4rem;
+    -webkit-animation: bounce-down 1.5s linear infinite;
+    animation: bounce-down 1.5s linear infinite;
+    svg {
+      width: 3.5rem;
+      fill: black;
+    }
+  }
+}
+
+.right {
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: $subject-color;
+  padding-left: 100px;
+  .image {
+    width: 350px;
+    overflow: hidden;
+    // display: inline-block;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    transform: rotate(8deg);
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    .photo {
+      width: 350px;
+    }
+  }
+  .white-card {
+    margin-left: -2rem;
+    position: absolute;
+    background-color: $subject-color;
+    width: 340px;
+    height: 490px;
+    transform: rotate(-15deg);
+    transform-origin: 100% 100%;
+    border-radius: 12px;
+  }
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 .service {
-  background-color: antiquewhite;
-}
-// .right {
-//   background-color: aqua;
-// }
-// .image {
-//   order: 1;
-// }
-// .photo {
-//   width: 10px;
-//   height: 20px;
-// }
-.image {
-  overflow: hidden;
-  // display: inline-block;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  transform: rotate(8deg);
-  .photo {
-    width: 250px;
+  li {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+
+    // .right-arrow {
+    //   width: 15px;
+    //   color: $subject-color;
+    // }
+    svg {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      color: $subject-color;
+      svg {
+        transform: rotate(-45deg);
+        transform-origin: 35% 50%;
+        transition-duration: 0.3s;
+      }
+    }
   }
+}
+
+.short_info {
+  // background-color: aquamarine;
+  display: flex;
+
+  h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+  li {
+    float: left;
+    display: inline;
+    margin-right: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  span {
+    color: #7a8695;
+    padding-left: 1rem;
+  }
+}
+// .section {
+//   display: flex;
+//   // width: %;
+//   justify-content: center;
+// }
+// .portfolio {
+//   display: flex;
+//   width: 80%;
+//   justify-content: center;
+//   .title {
+//     background-color: antiquewhite;
+//     // width: 100%;
+//     display: flex;
+//     width: 80%;
+//     span {
+//       color: $subject-color;
+//       font-size: 1rem;
+//       padding-bottom: 1rem;
+//       font-weight: bold;
+//       display: block;
+//     }
+//   }
+// }
+// .container {
+//   width: 90%;
+//   // background-color: antiquewhite;
+// }
+#portfolio {
+  height: 80vh;
+  background-color: white;
+  display: flex;
+  align-items: flex-start;
+  align-items: center;
+  padding-left: 17%;
+  .title {
+    height: 10vh;
+    background-color: antiquewhite;
+  }
+  .portfolio-list {
+    height: 60vh;
+    background-color: aquamarine;
+  }
+}
+#skills {
+  background-color: black;
 }
